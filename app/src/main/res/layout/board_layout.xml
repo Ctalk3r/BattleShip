@@ -1,0 +1,1611 @@
+<com.example.battleship.SquareGridLayout android:id="@+id/board"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:columnCount="10"
+    android:orientation="horizontal"
+    android:rowCount="10"
+    android:stretchMode="none"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <FrameLayout
+        android:id="@+id/frame0"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame0"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image0"
+            android:tag="frame_image0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame1"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame1"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image1"
+            android:tag="frame_image1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame2"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame2"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image2"
+            android:tag="frame_image2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame3"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame3"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image3"
+            android:tag="frame_image3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame4"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame4"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image4"
+            android:tag="frame_image4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame5"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame5"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image5"
+            android:tag="frame_image5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame6"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame6"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image6"
+            android:tag="frame_image6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame7"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame7"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image7"
+            android:tag="frame_image7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame8"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame8"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image8"
+            android:tag="frame_image8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame9"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame9"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image9"
+            android:tag="frame_image9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame10"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame10"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image10"
+            android:tag="frame_image10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame11"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame11"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image11"
+            android:tag="frame_image11"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame12"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame12"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image12"
+            android:tag="frame_image12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame13"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame13"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image13"
+            android:tag="frame_image13"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame14"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame14"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image14"
+            android:tag="frame_image14"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame15"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame15"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image15"
+            android:tag="frame_image15"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame16"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame16"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image16"
+            android:tag="frame_image16"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame17"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame17"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image17"
+            android:tag="frame_image17"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame18"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame18"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image18"
+            android:tag="frame_image18"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame19"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame19"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image19"
+            android:tag="frame_image19"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame20"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame20"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image20"
+            android:tag="frame_image20"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame21"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame21"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image21"
+            android:tag="frame_image21"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame22"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame22"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image22"
+            android:tag="frame_image22"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame23"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame23"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image23"
+            android:tag="frame_image23"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame24"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame24"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image24"
+            android:tag="frame_image24"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame25"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame25"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image25"
+            android:tag="frame_image25"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame26"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame26"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image26"
+            android:tag="frame_image26"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame27"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame27"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image27"
+            android:tag="frame_image27"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame28"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame28"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image28"
+            android:tag="frame_image28"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame29"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame29"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image29"
+            android:tag="frame_image29"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame30"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame30"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image30"
+            android:tag="frame_image30"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame31"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame31"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image31"
+            android:tag="frame_image31"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame32"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame32"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image32"
+            android:tag="frame_image32"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame33"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame33"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image33"
+            android:tag="frame_image33"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame34"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame34"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image34"
+            android:tag="frame_image34"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame35"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame35"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image35"
+            android:tag="frame_image35"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame36"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame36"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image36"
+            android:tag="frame_image36"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame37"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame37"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image37"
+            android:tag="frame_image37"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame38"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame38"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image38"
+            android:tag="frame_image38"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame39"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame39"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image39"
+            android:tag="frame_image39"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame40"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame40"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image40"
+            android:tag="frame_image40"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame41"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame41"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image41"
+            android:tag="frame_image41"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame42"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame42"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image42"
+            android:tag="frame_image42"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame43"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame43"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image43"
+            android:tag="frame_image43"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame44"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame44"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image44"
+            android:tag="frame_image44"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame45"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame45"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image45"
+            android:tag="frame_image45"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame46"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame46"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image46"
+            android:tag="frame_image46"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame47"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame47"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image47"
+            android:tag="frame_image47"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame48"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame48"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image48"
+            android:tag="frame_image48"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame49"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame49"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image49"
+            android:tag="frame_image49"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame50"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame50"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image50"
+            android:tag="frame_image50"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame51"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame51"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image51"
+            android:tag="frame_image51"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame52"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame52"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image52"
+            android:tag="frame_image52"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame53"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame53"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image53"
+            android:tag="frame_image53"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame54"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame54"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image54"
+            android:tag="frame_image54"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame55"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame55"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image55"
+            android:tag="frame_image55"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame56"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame56"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image56"
+            android:tag="frame_image56"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame57"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame57"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image57"
+            android:tag="frame_image57"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame58"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame58"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image58"
+            android:tag="frame_image58"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame59"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame59"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image59"
+            android:tag="frame_image59"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame60"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame60"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image60"
+            android:tag="frame_image60"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame61"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame61"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image61"
+            android:tag="frame_image61"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame62"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame62"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image62"
+            android:tag="frame_image62"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame63"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame63"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image63"
+            android:tag="frame_image63"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame64"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame64"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image64"
+            android:tag="frame_image64"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame65"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame65"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image65"
+            android:tag="frame_image65"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame66"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame66"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image66"
+            android:tag="frame_image66"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame67"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame67"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image67"
+            android:tag="frame_image67"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame68"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame68"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image68"
+            android:tag="frame_image68"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame69"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame69"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image69"
+            android:tag="frame_image69"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame70"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame70"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image70"
+            android:tag="frame_image70"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame71"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame71"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image71"
+            android:tag="frame_image71"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame72"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame72"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image72"
+            android:tag="frame_image72"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame73"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame73"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image73"
+            android:tag="frame_image73"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame74"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame74"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image74"
+            android:tag="frame_image74"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame75"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame75"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image75"
+            android:tag="frame_image75"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame76"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame76"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image76"
+            android:tag="frame_image76"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame77"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame77"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image77"
+            android:tag="frame_image77"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame78"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame78"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image78"
+            android:tag="frame_image78"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame79"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame79"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image79"
+            android:tag="frame_image79"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame80"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame80"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image80"
+            android:tag="frame_image80"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame81"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame81"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image81"
+            android:tag="frame_image81"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame82"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame82"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image82"
+            android:tag="frame_image82"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame83"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame83"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image83"
+            android:tag="frame_image83"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame84"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame84"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image84"
+            android:tag="frame_image84"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame85"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame85"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image85"
+            android:tag="frame_image85"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame86"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame86"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image86"
+            android:tag="frame_image86"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame87"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame87"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image87"
+            android:tag="frame_image87"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame88"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame88"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image88"
+            android:tag="frame_image88"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame89"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame89"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image89"
+            android:tag="frame_image89"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame90"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame90"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image90"
+            android:tag="frame_image90"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame91"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame91"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image91"
+            android:tag="frame_image91"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame92"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame92"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image92"
+            android:tag="frame_image92"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame93"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame93"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image93"
+            android:tag="frame_image93"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame94"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame94"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image94"
+            android:tag="frame_image94"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame95"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame95"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image95"
+            android:tag="frame_image95"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame96"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame96"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image96"
+            android:tag="frame_image96"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame97"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame97"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image97"
+            android:tag="frame_image97"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame98"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame98"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image98"
+            android:tag="frame_image98"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame99"
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:tag="frame99"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape" >
+
+        <ImageView
+            android:id="@+id/frame_image99"
+            android:tag="frame_image99"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+</com.example.battleship.SquareGridLayout>
