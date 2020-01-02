@@ -8,10 +8,23 @@
     tools:context=".BattleActivity">
 
     <include layout="@layout/board_layout"
+        android:id="@+id/your_board"
         android:layout_gravity="top"
         android:layout_width="200dp"
         android:layout_height="0dp"/>
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/your_board"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_above="@id/enemy_board"/>
+
     <include layout="@layout/board_layout"
+        android:id="@+id/enemy_board"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="0dp"/>

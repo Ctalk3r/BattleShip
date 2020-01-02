@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:tag="quad1"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:src="@drawable/shape_quad" />
     <LinearLayout
         android:layout_width="wrap_content"
@@ -20,14 +20,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="triple1"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:src="@drawable/shape_triple" />
         <ImageView
             android:id="@+id/triple2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="triple2"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:src="@drawable/shape_triple" />
     </LinearLayout>
     <LinearLayout
@@ -38,21 +38,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="double1"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:src="@drawable/shape_double" />
         <ImageView
             android:id="@+id/double2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="double2"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:src="@drawable/shape_double" />
         <ImageView
             android:id="@+id/double3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="double3"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:src="@drawable/shape_double" />
     </LinearLayout>
     <LinearLayout
@@ -63,28 +63,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="single1"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:src="@drawable/shape_single" />
         <ImageView
             android:id="@+id/single2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="single2"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:src="@drawable/shape_single" />
         <ImageView
             android:id="@+id/single3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="single3"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:src="@drawable/shape_single" />
         <ImageView
             android:id="@+id/single4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="single4"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:src="@drawable/shape_single" />
     </LinearLayout>
     <LinearLayout

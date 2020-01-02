@@ -30,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.apache.commons.lang3.StringUtils;
 import org.droidparts.widget.ClearableEditText;
 
 import java.util.UUID;
@@ -43,11 +44,17 @@ public class ArrangementActivity extends AppCompatActivity {
     private int[][] used;
     private int fromBoard = -1;
     private int shipCount = 0;
+    private String gameId;
+    private String userName;
+    private String userId;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arrangement);
+
+        userName = getIntent().getStringExtra("name");
+        userId = getIntent().getStringExtra("userId");
 
         used = new int[10][10];
         for (int i = 0; i < 10; ++i) {
@@ -497,9 +504,8 @@ public class ArrangementActivity extends AppCompatActivity {
     }
 
     class MyDragListener implements View.OnDragListener {
-        Drawable enterShape = getResources().getDrawable(
-                R.drawable.shape_droptarget);
-        Drawable normalShape = getResources().getDrawable(R.drawable.shape);
+        Drawable enterShape = getDrawable(R.drawable.shape_droptarget);
+        Drawable normalShape = getDrawable(R.drawable.shape);
 
         @Override
         public boolean onDrag(View v, DragEvent event) {
@@ -773,7 +779,7 @@ public class ArrangementActivity extends AppCompatActivity {
                 .setPositiveButton("Connect", null)
                 .setCancelable(cancelable)
                 .create();
-        final String gameId = UUID.randomUUID().toString().substring(0, 25);
+        final String hostGameId = UUID.randomUUID().toString().substring(0, 25).replace("-", "");
         dialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
             public void onShow(final DialogInterface dialog) {
@@ -790,7 +796,7 @@ public class ArrangementActivity extends AppCompatActivity {
                                 break;
                             case R.id.create:
                                 editText = ((AlertDialog)dialog).findViewById(R.id.game_id);
-                                editText.setText(gameId);
+                                editText.setText(hostGameId);
                                 editText.setTag("host");
                                 editText.setHint("Copy and send game id");
                                 editText.requestFocus();
@@ -814,29 +820,30 @@ public class ArrangementActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         TextInputEditText editText = ((AlertDialog)dialog).findViewById(R.id.game_id);
-                        if (editText.getText().length() != gameId.length()) {
+                        if (editText.getText().length() != hostGameId.length()) {
                             Toast.makeText(ArrangementActivity.this, "Invalid game id", Toast.LENGTH_SHORT).show();
                             return;
                         }
-                        final DatabaseReference state = FirebaseDatabase.getInstance().getReference("game").child(editText.getText().toString());
+                        gameId = editText.getText().toString();
+                        final DatabaseReference state = FirebaseDatabase.getInstance().getReference("game").child(gameId);
 
                         if (editText.getTag().equals("host")) {
-                            state.child("hostName").setValue("Host");
-                            state.child("name").addValueEventListener(new ValueEventListener() {
+                            state.child("host").child("name").setValue(userName);
+                            state.child("client").child("name").addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     if (!dataSnapshot.exists())
                                         return;
-                                    String name = dataSnapshot.getValue(String.class);
                                     dialog.dismiss();
                                     ArrangementActivity.this.finish();
                                     Intent intent = new Intent(getApplicationContext(), BattleActivity.class);
                                     intent.putExtra("gameId", gameId);
-                                    intent.putExtra("hostName", "Host");
-                                    intent.putExtra("name", name);
+                                    intent.putExtra("board", getBoard());
+                                    intent.putExtra("name", userName);
+                                    intent.putExtra("userId", userId);
                                     intent.putExtra("isHost", true);
                                     startActivity(intent);
-                                    state.child("name").removeEventListener(this);
+                                    state.child("host").child("name").removeEventListener(this);
                                 }
 
                                 @Override
@@ -851,7 +858,16 @@ public class ArrangementActivity extends AppCompatActivity {
                                     if (!dataSnapshot.exists()) {
                                         Toast.makeText(ArrangementActivity.this, "There is no host connection with such id", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        FirebaseDatabase.getInstance().getReference("game").child(gameId).child("name").setValue("Object");
+                                        FirebaseDatabase.getInstance().getReference("game").child(gameId).child("client").child("name").setValue(userName);
+                                        dialog.dismiss();
+                                        ArrangementActivity.this.finish();
+                                        Intent intent = new Intent(getApplicationContext(), BattleActivity.class);
+                                        intent.putExtra("gameId", gameId);
+                                        intent.putExtra("board", getBoard());
+                                        intent.putExtra("name", userName);
+                                        intent.putExtra("userId", userId);
+                                        intent.putExtra("isHost", false);
+                                        startActivity(intent);
                                     }
                                 }
 
@@ -866,5 +882,19 @@ public class ArrangementActivity extends AppCompatActivity {
             }
         });
         dialog.show();
+    }
+
+    private String getBoard() {
+        StringBuilder board = new StringBuilder();
+        for (int i = 0; i < 10; ++i) {
+            for (int j = 0; j < 10; ++j) {
+                if (used[i][j] > 0) {
+                    board.append('1');
+                } else {
+                    board.append('0');
+                }
+            }
+        }
+        return board.toString();
     }
 }
