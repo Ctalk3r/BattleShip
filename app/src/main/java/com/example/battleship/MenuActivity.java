@@ -16,7 +16,7 @@ public class MenuActivity extends AppCompatActivity {
         findViewById(R.id.new_game_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), BattleActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ArrangementActivity.class);
                 startActivity(intent);
             }
         });

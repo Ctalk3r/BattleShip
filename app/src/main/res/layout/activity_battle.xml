@@ -1,91 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".BattleActivity">
 
-    <include layout="@layout/board_layout"/>
+    <include layout="@layout/board_layout"
+        android:layout_gravity="top"
+        android:layout_width="200dp"
+        android:layout_height="0dp"/>
+    <include layout="@layout/board_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
 
-    <ImageView
-        android:id="@+id/quad1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="quad1"
-        android:layout_margin="15dp"
-        android:src="@drawable/shape_quad" />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/triple1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="triple1"
-            android:layout_margin="15dp"
-            android:src="@drawable/shape_triple" />
-        <ImageView
-            android:id="@+id/triple2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="triple2"
-            android:layout_margin="15dp"
-            android:src="@drawable/shape_triple" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/double1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="double1"
-            android:layout_margin="15dp"
-            android:src="@drawable/shape_double" />
-        <ImageView
-            android:id="@+id/double2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="double2"
-            android:layout_margin="15dp"
-            android:src="@drawable/shape_double" />
-        <ImageView
-            android:id="@+id/double3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="double3"
-            android:layout_margin="15dp"
-            android:src="@drawable/shape_double" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/single1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="single1"
-            android:layout_margin="15dp"
-            android:src="@drawable/shape_single" />
-        <ImageView
-            android:id="@+id/single2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="single2"
-            android:layout_margin="15dp"
-            android:src="@drawable/shape_single" />
-        <ImageView
-            android:id="@+id/single3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="single3"
-            android:layout_margin="15dp"
-            android:src="@drawable/shape_single" />
-        <ImageView
-            android:id="@+id/single4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="single4"
-            android:layout_margin="15dp"
-            android:src="@drawable/shape_single" />
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>
