@@ -335,7 +335,7 @@ public class BattleActivity extends AppCompatActivity {
                         leftEnemyShips.set(1, leftEnemyShips.get(1) - 1);
                         enemyState.child("leftShips").setValue(leftEnemyShips);
                     } else {
-                        if ((top == CellType.SHIP || top == CellType.DESTROYED) &&
+                        if ((top == CellType.SHIP || top == CellType.DESTROYED) ||
                             (bottom == CellType.SHIP || bottom == CellType.DESTROYED)) {
                             int idx = a - 1, cnt = 0;
                             CellType cell = getCellType(idx, b, eboard);
@@ -357,7 +357,7 @@ public class BattleActivity extends AppCompatActivity {
                                         if (j == b && (i > start && i < idx))
                                             continue;
                                         int id = res.getIdentifier("frame" + (i * 10 + j), "id", getApplicationContext().getPackageName());
-                                        board.setCharAt(i * 10 + j, Character.forDigit(CellType.MISS.ordinal(), 10));
+                                        eboard.setCharAt(i * 10 + j, Character.forDigit(CellType.MISS.ordinal(), 10));
                                         enemyBoard.findViewById(id).setBackground(missShape);
                                    }
                                 }
