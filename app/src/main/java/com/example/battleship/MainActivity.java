@@ -46,6 +46,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.stat_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showStatistics();
+            }
+        });
     }
 
     @Override
@@ -99,6 +106,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (ApiException e) {
             updateUI(null);
             Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+    private void showStatistics(){
+
+        if (userName != null) {
+            Intent intent = new Intent(this, StatsActivity.class);
+            intent.putExtra("userId", userId);
+            this.startActivity(intent);
         }
     }
 }

@@ -14,6 +14,7 @@ import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -1130,12 +1131,17 @@ public class ArrangementActivity extends AppCompatActivity {
                         final DatabaseReference state = FirebaseDatabase.getInstance().getReference("game").child(gameId);
 
                         if (editText.getTag().equals("host")) {
+                            ((RadioButton)((AlertDialog)dialog).findViewById(R.id.connect)).setEnabled(false);
+                            ((AlertDialog)dialog).getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                            ((ProgressBar)((AlertDialog)dialog).findViewById(R.id.connect_progress)).getLayoutParams().width = 120;
+                            ((ProgressBar)((AlertDialog)dialog).findViewById(R.id.connect_progress)).requestLayout();
                             state.child("host").child("name").setValue(userName);
                             state.child("client").child("name").addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     if (!dataSnapshot.exists())
                                         return;
+                                    ((ProgressBar)((AlertDialog)dialog).findViewById(R.id.connect_progress)).setVisibility(View.INVISIBLE);
                                     dialog.dismiss();
                                     ArrangementActivity.this.finish();
                                     Intent intent = new Intent(getApplicationContext(), BattleActivity.class);

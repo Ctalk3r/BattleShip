@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Battleship</string>
+    <string name="stats">My statistics</string>
+    <string name="player1_name">Player 1</string>
+    <string name="player2_name">Player 2</string>
+    <string name="zero_counter">0</string>
+    <string name="two_dots">:</string>
 </resources>

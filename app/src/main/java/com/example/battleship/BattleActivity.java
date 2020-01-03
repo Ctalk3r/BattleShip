@@ -71,10 +71,12 @@ public class BattleActivity extends AppCompatActivity {
 
         if (isHost) {
             yourTurn = true;
+            setChoice(yourTurn);
             enemyState = FirebaseDatabase.getInstance().getReference("game").child(gameId).child("client");
             yourState = FirebaseDatabase.getInstance().getReference("game").child(gameId).child("host");
         } else {
             yourTurn = false;
+            setChoice(yourTurn);
             enemyState = FirebaseDatabase.getInstance().getReference("game").child(gameId).child("host");
             yourState = FirebaseDatabase.getInstance().getReference("game").child(gameId).child("client");
         }
@@ -248,13 +250,14 @@ public class BattleActivity extends AppCompatActivity {
                     return;
                 String newBoard = dataSnapshot.getValue(String.class);
                 Resources res = getResources();
+                int cnt = 0;
                 for (int i = 0; i < newBoard.length(); ++i)
                     if (newBoard.charAt(i) != board.charAt(i)) {
                         int id = res.getIdentifier("frame" + i, "id", getApplicationContext().getPackageName());
                         switch (getCellType(i / 10, i % 10, newBoard)) {
                             case MISS:
                                 yourBoard.findViewById(id).setBackground(missShape);
-                                yourTurn = true;
+                                ++cnt;
                                 break;
                             case DESTROYED:
                                 yourBoard.findViewById(id).setBackground(destroyedShape);
@@ -262,6 +265,10 @@ public class BattleActivity extends AppCompatActivity {
                             default:
                                 break;
                         }
+                }
+                if (cnt == 1) {
+                    yourTurn = true;
+                    setChoice(yourTurn);
                 }
                 board.setLength(0);
                 board.append(newBoard);
@@ -310,6 +317,7 @@ public class BattleActivity extends AppCompatActivity {
                     eboard.setCharAt(pos, Character.forDigit(CellType.MISS.ordinal(), 10));
                     enemyState.child("board").setValue(eboard.toString());
                     yourTurn = false;
+                    setChoice(yourTurn);
                     break;
                 case SHIP:
                     v.setBackground(destroyedShape);
@@ -439,6 +447,18 @@ public class BattleActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void setScore(ArrayList<Integer> data) {
         leftShips = new ArrayList<Integer>(data);
+        if (!((TextView)findViewById(R.id.score1)).getText().equals(leftShips.get(1).toString())) {
+            ((TextView)findViewById(R.id.score1)).setText(leftShips.get(1).toString());
+        }
+        if (!((TextView)findViewById(R.id.score2)).getText().equals(leftShips.get(2).toString())) {
+            ((TextView)findViewById(R.id.score2)).setText(leftShips.get(2).toString());
+        }
+        if (!((TextView)findViewById(R.id.score3)).getText().equals(leftShips.get(3).toString())) {
+            ((TextView)findViewById(R.id.score3)).setText(leftShips.get(3).toString());
+        }
+        if (!((TextView)findViewById(R.id.score4)).getText().equals(leftShips.get(4).toString())) {
+            ((TextView)findViewById(R.id.score4)).setText(leftShips.get(4).toString());
+        }
         int score1 = (20 - (leftEnemyShips.get(1) + leftEnemyShips.get(2) * 2 + leftEnemyShips.get(3) * 3 + leftEnemyShips.get(4) * 4));
         int score2 = (20 - (leftShips.get(1) + leftShips.get(2) * 2 + leftShips.get(3) * 3 + leftShips.get(4) * 4));
         Score.setText(yourName + "  " +
@@ -457,5 +477,17 @@ public class BattleActivity extends AppCompatActivity {
         stat.setName(enemyName);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("stat").child(userId).child(gameId);
         ref.setValue(stat);
+    }
+
+    private void setChoice(boolean yourChoice) {
+        if (yourChoice) {
+            ((TextView)findViewById(R.id.turn)).setText("Your turn");
+            ((TextView)findViewById(R.id.turn)).setTextColor(getResources().getColor(R.color.colorPrimary));
+            findViewById(R.id.turn_progress).setVisibility(View.INVISIBLE);
+        } else {
+            ((TextView)findViewById(R.id.turn)).setText("Enemy's turn");
+            ((TextView)findViewById(R.id.turn)).setTextColor(getResources().getColor(R.color.colorAccent));
+            findViewById(R.id.turn_progress).setVisibility(View.VISIBLE);
+        }
     }
 }
