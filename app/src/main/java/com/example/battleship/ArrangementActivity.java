@@ -403,18 +403,19 @@ public class ArrangementActivity extends AppCompatActivity {
         final Handler handler = new Handler();
         boolean goneFlag = false;
         public boolean onTouch(View currentView, MotionEvent motionEvent) {
+            if (currentView == null || currentView.getTag() == null || currentView.getTag().toString().equals("empty"))
+                return false;
             Runnable runnable = new Runnable() {
                 @Override
                 public void run() {
                     goneFlag = true;
-                    if (view.getTag() == null || view.getTag().toString().equals("empty"))
-                        return;
                     ClipData data = ClipData.newPlainText("", "");
                     if (view.getTag().toString().contains("_")) {
                         int pos = Integer.parseInt(((String) view.getTag()).substring(11));
                         int a = pos / 10;
                         int b = pos % 10;
                         int val = used[a][b] / 10000;
+                        boolean verticalFlag = ((used[a][b] / 1000) % 10 == 1);
                         if (used[a][b] < 0)
                             return;
                         ImageView translateView = null;
@@ -442,49 +443,83 @@ public class ArrangementActivity extends AppCompatActivity {
                                 translateView.setImageResource(R.drawable.shape_single);
                                 break;
                             case 2:
-                                if (pos != used[a][b] % 100) {
-                                    int id = res.getIdentifier("frame_image" + Integer.toString(used[a][b] % 100), "id", getApplicationContext().getPackageName());
-                                    view = findViewById(id);
-                                }
-                                fromBoard = used[a][b] % 100;
-                                translateView = findViewById(R.id.double1);
-                                if (!translateView.getTag().equals("empty")) {
-                                    translateView = findViewById(R.id.double2);
-                                    if (!translateView.getTag().equals("empty")) {
-                                        translateView = findViewById(R.id.double3);
-                                        translateView.setTag("double3");
-                                    } else {
-                                        translateView.setTag("double2");
+                                if (verticalFlag) {
+                                    if (pos != used[a][b] % 100) {
+                                        int id = res.getIdentifier("frame_image" + Integer.toString(used[a][b] % 100), "id", getApplicationContext().getPackageName());
+                                        view = findViewById(id);
                                     }
+                                    fromBoard = used[a][b] % 100;
+                                    translateView = findViewById(R.id.double1v);
+                                    translateView.setTag("double1v");
+                                    translateView.setImageResource(R.drawable.shape_double_v);
                                 } else {
-                                    translateView.setTag("double1");
+                                    if (pos != used[a][b] % 100) {
+                                        int id = res.getIdentifier("frame_image" + Integer.toString(used[a][b] % 100), "id", getApplicationContext().getPackageName());
+                                        view = findViewById(id);
+                                    }
+                                    fromBoard = used[a][b] % 100;
+                                    translateView = findViewById(R.id.double1);
+                                    if (!translateView.getTag().equals("empty")) {
+                                        translateView = findViewById(R.id.double2);
+                                        if (!translateView.getTag().equals("empty")) {
+                                            translateView = findViewById(R.id.double3);
+                                            translateView.setTag("double3");
+                                        } else {
+                                            translateView.setTag("double2");
+                                        }
+                                    } else {
+                                        translateView.setTag("double1");
+                                    }
+                                    translateView.setImageResource(R.drawable.shape_double);
                                 }
-                                translateView.setImageResource(R.drawable.shape_double);
                                 break;
                             case 3:
-                                if (pos != used[a][b] % 100 + 1) {
-                                    int id = res.getIdentifier("frame_image" + Integer.toString(used[a][b] % 100 + 1), "id", getApplicationContext().getPackageName());
-                                    view = findViewById(id);
+                                if (verticalFlag) {
+                                    if (pos != used[a][b] % 100 + 10) {
+                                        int id = res.getIdentifier("frame_image" + Integer.toString(used[a][b] % 100 + 10), "id", getApplicationContext().getPackageName());
+                                        view = findViewById(id);
+                                    }
+                                    fromBoard = used[a][b] % 100 + 10;
+                                    translateView = findViewById(R.id.triple1v);
+                                    translateView.setTag("triple1v");
+                                    translateView.setImageResource(R.drawable.shape_triple_v);
                                 }
-                                fromBoard = used[a][b] % 100 + 1;
-                                translateView = findViewById(R.id.triple1);
-                                if (!translateView.getTag().equals("empty")) {
-                                    translateView = findViewById(R.id.triple2);
-                                    translateView.setTag("triple2");
-                                } else {
-                                    translateView.setTag("triple1");
+                                else {
+                                    if (pos != used[a][b] % 100 + 1) {
+                                        int id = res.getIdentifier("frame_image" + Integer.toString(used[a][b] % 100 + 1), "id", getApplicationContext().getPackageName());
+                                        view = findViewById(id);
+                                    }
+                                    fromBoard = used[a][b] % 100 + 1;
+                                    translateView = findViewById(R.id.triple1);
+                                    if (!translateView.getTag().equals("empty")) {
+                                        translateView = findViewById(R.id.triple2);
+                                        translateView.setTag("triple2");
+                                    } else {
+                                        translateView.setTag("triple1");
+                                    }
+                                    translateView.setImageResource(R.drawable.shape_triple);
                                 }
-                                translateView.setImageResource(R.drawable.shape_triple);
                                 break;
                             case 4:
-                                if (pos != used[a][b] % 100 + 1) {
-                                    int id = res.getIdentifier("frame_image" + Integer.toString(used[a][b] % 100 + 1), "id", getApplicationContext().getPackageName());
-                                    view = findViewById(id);
+                                if (verticalFlag) {
+                                    if (pos != used[a][b] % 100 + 10) {
+                                        int id = res.getIdentifier("frame_image" + Integer.toString(used[a][b] % 100 + 10), "id", getApplicationContext().getPackageName());
+                                        view = findViewById(id);
+                                    }
+                                    fromBoard = used[a][b] % 100 + 10;
+                                    translateView = findViewById(R.id.quad1v);
+                                    translateView.setTag("quad1v");
+                                    translateView.setImageResource(R.drawable.shape_quad_v);
+                                } else {
+                                    if (pos != used[a][b] % 100 + 1) {
+                                        int id = res.getIdentifier("frame_image" + Integer.toString(used[a][b] % 100 + 1), "id", getApplicationContext().getPackageName());
+                                        view = findViewById(id);
+                                    }
+                                    fromBoard = used[a][b] % 100 + 1;
+                                    translateView = findViewById(R.id.quad1);
+                                    translateView.setTag("quad1");
+                                    translateView.setImageResource(R.drawable.shape_quad);
                                 }
-                                fromBoard = used[a][b] % 100 + 1;
-                                translateView = findViewById(R.id.quad1);
-                                translateView.setTag("quad1");
-                                translateView.setImageResource(R.drawable.shape_quad);
                                 break;
                             default:
                                 translateView = findViewById(R.id.triple1);
@@ -513,12 +548,86 @@ public class ArrangementActivity extends AppCompatActivity {
                 case MotionEvent.ACTION_UP:
                     handler.removeCallbacksAndMessages(null);
                     if (!goneFlag) {
+                        tryRotateShip(view);
                         return true;
                     }
                     break;
             }
             return true;
         }
+    }
+
+    private void tryRotateShip(View cell) {
+        int pos = Integer.parseInt(((String) cell.getTag()).substring(11));
+        int a = pos / 10;
+        int b = pos % 10;
+        int val = used[a][b] / 10000;
+        if (val == 1)
+            return;
+        boolean verticalFlag = ((used[a][b] / 1000) % 10 == 1);
+        Resources res = getResources();
+
+        if (used[a][b] < 0)
+            return;
+        ImageView checkView = findViewById(R.id.quad1);
+        int setPos = used[a][b] % 100;
+        int add = 0;
+        switch (val) {
+            case 1:
+                checkView.setTag("single1");
+                break;
+            case 2:
+                checkView.setTag("double1");
+                break;
+            case 3:
+                checkView.setTag("triple1");
+                if (!verticalFlag) {
+                    setPos += 10;
+                    add++;
+                } else {
+                    add += 10;
+                    setPos++;
+                }
+                break;
+            case 4:
+                checkView.setTag("quad1");
+                if (!verticalFlag) {
+                    setPos += 10;
+                    add++;
+                } else {
+                    add += 10;
+                    setPos++;
+                }
+                break;
+        }
+        if (!verticalFlag)
+            checkView.setTag(checkView.getTag().toString() + "v");
+        int id = res.getIdentifier("frame_image" + Integer.toString(used[a][b] % 100 + add), "id", getApplicationContext().getPackageName());
+        cell = findViewById(id);
+
+        if (!verticalFlag) {
+            checkView.setTag(checkView.getTag().toString().substring(0, checkView.getTag().toString().length() - 1));
+            releaseShip(checkView, used[a][b]);
+            checkView.setTag(checkView.getTag().toString() + "v");
+        } else {
+            checkView.setTag(checkView.getTag().toString() + "v");
+            releaseShip(checkView, used[a][b]);
+            checkView.setTag(checkView.getTag().toString().substring(0, checkView.getTag().toString().length() - 1));
+        }
+
+        id = res.getIdentifier("frame_image" + Integer.toString(setPos), "id", getApplicationContext().getPackageName());
+        View setView = findViewById(id);
+
+        if (canDrop(checkView, setView)) {
+            setShip(checkView, setView);
+        } else {
+            if (!verticalFlag)
+                checkView.setTag(checkView.getTag().toString().substring(0, checkView.getTag().toString().length() - 1));
+            else
+                checkView.setTag(checkView.getTag().toString() + "v");
+            setShip(checkView, cell);
+        }
+        checkView.setTag("quad1");
     }
 
     public void switchShipImage(ImageView ship, boolean first) {
@@ -596,36 +705,68 @@ public class ArrangementActivity extends AppCompatActivity {
         String type = (String) ship.getTag();
         if (type == null || cell.getTag() == null || !cell.getTag().toString().substring(0, 5).equals("frame"))
             return false;
-        int pos = Integer.parseInt(((String) cell.getTag()).substring(5));
+        int pos;
+        if (cell.getTag().toString().contains("_"))
+            pos = Integer.parseInt(((String) cell.getTag()).substring(11));
+        else
+            pos = Integer.parseInt(((String) cell.getTag()).substring(5));
         int a = pos / 10;
         int b = pos % 10;
-        switch (type.substring(0, type.length() - 1)) {
+        boolean verticalFlag = type.charAt(type.length() - 1) == 'v';
+        switch (type.substring(0, type.length() - (verticalFlag ? 2 : 1))) {
             case "single":
                 if (used[a][b] != -1)
                     return false;
                 break;
             case "double":
-                if (b + 1 >= 10)
-                    return false;
-                for (int j = b; j < b + 2; ++j) {
-                    if (used[a][j] != -1)
+                if (verticalFlag) {
+                    if (a + 1 >= 10)
                         return false;
+                    for (int i = a; i < a + 2; ++i) {
+                        if (used[i][b] != -1)
+                            return false;
+                    }
+                } else {
+                    if (b + 1 >= 10)
+                        return false;
+                    for (int j = b; j < b + 2; ++j) {
+                        if (used[a][j] != -1)
+                            return false;
+                    }
                 }
                 break;
             case "triple":
-                if (b - 1 < 0 || b + 1 >= 10)
-                    return false;
-                for (int j = b - 1; j < b + 2; ++j) {
-                    if (used[a][j] != -1)
+                if (verticalFlag) {
+                    if (a - 1 < 0 || a + 1 >= 10)
                         return false;
+                    for (int i = a - 1; i < a + 2; ++i) {
+                        if (used[i][b] != -1)
+                            return false;
+                    }
+                } else {
+                    if (b - 1 < 0 || b + 1 >= 10)
+                        return false;
+                    for (int j = b - 1; j < b + 2; ++j) {
+                        if (used[a][j] != -1)
+                            return false;
+                    }
                 }
                 break;
             case "quad":
-                if (b - 1 < 0 || b + 2 >= 10)
-                    return false;
-                for (int j = b - 1; j < b + 3; ++j) {
-                    if (used[a][j] != -1)
+                if (verticalFlag) {
+                    if (a - 1 < 0 || a + 2 >= 10)
                         return false;
+                    for (int i = a - 1; i < a + 3; ++i) {
+                        if (used[i][b] != -1)
+                            return false;
+                    }
+                } else {
+                    if (b - 1 < 0 || b + 2 >= 10)
+                        return false;
+                    for (int j = b - 1; j < b + 3; ++j) {
+                        if (used[a][j] != -1)
+                            return false;
+                    }
                 }
                 break;
             default:
@@ -642,26 +783,49 @@ public class ArrangementActivity extends AppCompatActivity {
         cell.setBackground(shape);
 
         Resources res = getResources();
-        switch (type.substring(0, type.length() - 1)) {
+        boolean verticalFlag = type.charAt(type.length() - 1) == 'v';
+        switch (type.substring(0, type.length() - (verticalFlag ? 2 : 1))) {
             case "single":
                 break;
             case "double":
-                int id = res.getIdentifier("frame" + Integer.toString(pos + 1), "id", getApplicationContext().getPackageName());
+                int id;
+                if (verticalFlag) {
+                    id = res.getIdentifier("frame" + Integer.toString(pos + 10), "id", getApplicationContext().getPackageName());
+                } else {
+                    id = res.getIdentifier("frame" + Integer.toString(pos + 1), "id", getApplicationContext().getPackageName());
+                }
                 findViewById(id).setBackground(shape);
                 break;
             case "triple":
-                id = res.getIdentifier("frame" + Integer.toString(pos - 1), "id", getApplicationContext().getPackageName());
-                findViewById(id).setBackground(shape);
-                id = res.getIdentifier("frame" + Integer.toString(pos + 1), "id", getApplicationContext().getPackageName());
-                findViewById(id).setBackground(shape);
+                if (verticalFlag) {
+                    id = res.getIdentifier("frame" + Integer.toString(pos - 10), "id", getApplicationContext().getPackageName());
+                    findViewById(id).setBackground(shape);
+                    id = res.getIdentifier("frame" + Integer.toString(pos + 10), "id", getApplicationContext().getPackageName());
+                    findViewById(id).setBackground(shape);
+                } else {
+                    id = res.getIdentifier("frame" + Integer.toString(pos - 1), "id", getApplicationContext().getPackageName());
+                    findViewById(id).setBackground(shape);
+                    id = res.getIdentifier("frame" + Integer.toString(pos + 1), "id", getApplicationContext().getPackageName());
+                    findViewById(id).setBackground(shape);
+                }
+
                 break;
             case "quad":
-                id = res.getIdentifier("frame" + Integer.toString(pos - 1), "id", getApplicationContext().getPackageName());
-                findViewById(id).setBackground(shape);
-                id = res.getIdentifier("frame" + Integer.toString(pos + 1), "id", getApplicationContext().getPackageName());
-                findViewById(id).setBackground(shape);
-                id = res.getIdentifier("frame" + Integer.toString(pos + 2), "id", getApplicationContext().getPackageName());
-                findViewById(id).setBackground(shape);
+                if (verticalFlag) {
+                    id = res.getIdentifier("frame" + Integer.toString(pos - 10), "id", getApplicationContext().getPackageName());
+                    findViewById(id).setBackground(shape);
+                    id = res.getIdentifier("frame" + Integer.toString(pos + 10), "id", getApplicationContext().getPackageName());
+                    findViewById(id).setBackground(shape);
+                    id = res.getIdentifier("frame" + Integer.toString(pos + 20), "id", getApplicationContext().getPackageName());
+                    findViewById(id).setBackground(shape);
+                } else {
+                    id = res.getIdentifier("frame" + Integer.toString(pos - 1), "id", getApplicationContext().getPackageName());
+                    findViewById(id).setBackground(shape);
+                    id = res.getIdentifier("frame" + Integer.toString(pos + 1), "id", getApplicationContext().getPackageName());
+                    findViewById(id).setBackground(shape);
+                    id = res.getIdentifier("frame" + Integer.toString(pos + 2), "id", getApplicationContext().getPackageName());
+                    findViewById(id).setBackground(shape);
+                }
                 break;
             default:
                 break;
@@ -670,13 +834,17 @@ public class ArrangementActivity extends AppCompatActivity {
 
     public void setShip(View ship, View cell) {
         String type = (String) ship.getTag();
-        int pos = Integer.parseInt(((String) cell.getTag()).substring(5));
-        int a = pos / 10;
+        int pos;
+        if (cell.getTag().toString().contains("_"))
+            pos = Integer.parseInt(((String) cell.getTag()).substring(11));
+        else
+            pos = Integer.parseInt(((String) cell.getTag()).substring(5));        int a = pos / 10;
         int b = pos % 10;
 
         shipCount++;
         Resources res = getResources();
-        switch (type.substring(0, type.length() - 1)) {
+        boolean verticalFlag = type.charAt(type.length() - 1) == 'v';
+        switch (type.substring(0, type.length() - (verticalFlag ? 2 : 1))) {
             case "single":
                 int id = res.getIdentifier("frame_image" + Integer.toString(pos), "id", getApplicationContext().getPackageName());
                 ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_single);
@@ -685,51 +853,99 @@ public class ArrangementActivity extends AppCompatActivity {
                         --used[i][j];
                     }
                 }
-                used[a][b] = 10000 + pos;
+                used[a][b] = 11000 + pos;
                 break;
             case "double":
-                id = res.getIdentifier("frame_image" + Integer.toString(pos), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_right_side_opened);
-                id = res.getIdentifier("frame_image" + Integer.toString(pos + 1), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_left_side_opened);
-                for (int i = max(0, a - 1); i < min(10, a + 2); ++i) {
-                    for (int j = max(0, b - 1); j < min(b + 3, 10); ++j) {
+                if (verticalFlag) {
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_bottom_side_opened);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos + 10), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_top_side_opened);
+                    for (int i = max(0, a - 1); i < min(10, a + 3); ++i) {
+                        for (int j = max(0, b - 1); j < min(b + 2, 10); ++j) {
                             --used[i][j];
+                        }
                     }
+                    used[a][b] = used[a + 1][b] = 21000 + pos;
+                } else {
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_right_side_opened);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos + 1), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_left_side_opened);
+                    for (int i = max(0, a - 1); i < min(10, a + 2); ++i) {
+                        for (int j = max(0, b - 1); j < min(b + 3, 10); ++j) {
+                            --used[i][j];
+                        }
+                    }
+                    used[a][b] = used[a][b + 1] = 20000 + pos;
                 }
-                used[a][b] = used[a][b + 1] = 20000 + pos;
                 break;
             case "triple":
-                id = res.getIdentifier("frame_image" + Integer.toString(pos - 1), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_right_side_opened);
-                id = res.getIdentifier("frame_image" + Integer.toString(pos), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_two_side_horizontal);
-                id = res.getIdentifier("frame_image" + Integer.toString(pos + 1), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_left_side_opened);
+                if (verticalFlag) {
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos - 10), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_bottom_side_opened);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_two_side_vertical);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos + 10), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_top_side_opened);
 
-                for (int i = max(0, a - 1); i < min(10, a + 2); ++i) {
-                    for (int j = max(0, b - 2); j < min(b + 3, 10); ++j) {
+                    for (int i = max(0, a - 2); i < min(10, a + 3); ++i) {
+                        for (int j = max(0, b - 1); j < min(b + 2, 10); ++j) {
                             --used[i][j];
+                        }
                     }
+                    used[a - 1][b] = used[a][b] = used[a + 1][b] = 31000 + pos - 10;
+                } else {
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos - 1), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_right_side_opened);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_two_side_horizontal);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos + 1), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_left_side_opened);
+
+                    for (int i = max(0, a - 1); i < min(10, a + 2); ++i) {
+                        for (int j = max(0, b - 2); j < min(b + 3, 10); ++j) {
+                            --used[i][j];
+                        }
+                    }
+                    used[a][b - 1] = used[a][b] = used[a][b + 1] = 30000 + pos - 1;
                 }
-                used[a][b - 1] = used[a][b] = used[a][b + 1] = 30000 + pos - 1;
+
                 break;
             case "quad":
-                id = res.getIdentifier("frame_image" + Integer.toString(pos - 1), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_right_side_opened);
-                id = res.getIdentifier("frame_image" + Integer.toString(pos), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_two_side_horizontal);
-                id = res.getIdentifier("frame_image" + Integer.toString(pos + 1), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_two_side_horizontal);
-                id = res.getIdentifier("frame_image" + Integer.toString(pos + 2), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_left_side_opened);
+                if (verticalFlag) {
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos - 10), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_bottom_side_opened);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_two_side_vertical);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos + 10), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_two_side_vertical);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos + 20), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_top_side_opened);
 
-                for (int i = max(0, a - 1); i < min(10, a + 2); ++i) {
-                    for (int j = max(0, b - 2); j < min(b + 4, 10); ++j) {
-                        --used[i][j];
+                    for (int i = max(0, a - 2); i < min(10, a + 4); ++i) {
+                        for (int j = max(0, b - 1); j < min(b + 2, 10); ++j) {
+                            --used[i][j];
+                        }
                     }
+                    used[a - 1][b] = used[a][b] = used[a + 1][b] = used[a + 2][b] = 41000 + pos - 10;
+                } else {
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos - 1), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_right_side_opened);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_two_side_horizontal);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos + 1), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_two_side_horizontal);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos + 2), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageResource(R.drawable.shape_left_side_opened);
+
+                    for (int i = max(0, a - 1); i < min(10, a + 2); ++i) {
+                        for (int j = max(0, b - 2); j < min(b + 4, 10); ++j) {
+                            --used[i][j];
+                        }
+                    }
+                    used[a][b - 1] = used[a][b] = used[a][b + 1] = used[a][b + 2] = 40000 + pos - 1;
                 }
-                used[a][b - 1] = used[a][b] = used[a][b + 1] = used[a][b + 2] = 40000 + pos - 1;
                 break;
             default:
                 break;
@@ -746,6 +962,7 @@ public class ArrangementActivity extends AppCompatActivity {
 
         Resources res = getResources();
         shipCount--;
+        boolean verticalFlag = ((pos / 1000) % 10 == 1);
         switch (pos / 10000) {
             case 1:
                 int id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000), "id", getApplicationContext().getPackageName());
@@ -758,47 +975,97 @@ public class ArrangementActivity extends AppCompatActivity {
                 }
                 break;
             case 2:
-                id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageDrawable(null);
-                id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 1), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageDrawable(null);
-                used[a][b] = used[a][b + 1] = -2;
-                for (int i = max(0, a - 1); i < min(10, a + 2); ++i) {
-                    for (int j = max(0, b - 1); j < min(b + 3, 10); ++j) {
-                        ++used[i][j];
+                if (verticalFlag) {
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 10), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    used[a][b] = used[a + 1][b] = -2;
+                    for (int i = max(0, a - 1); i < min(10, a + 3); ++i) {
+                        for (int j = max(0, b - 1); j < min(b + 2, 10); ++j) {
+                            ++used[i][j];
+                        }
+                    }
+                } else {
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 1), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    used[a][b] = used[a][b + 1] = -2;
+                    for (int i = max(0, a - 1); i < min(10, a + 2); ++i) {
+                        for (int j = max(0, b - 1); j < min(b + 3, 10); ++j) {
+                            ++used[i][j];
+                        }
                     }
                 }
+
                 break;
             case 3:
-                id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageDrawable(null);
-                id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 1), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageDrawable(null);
-                id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 2), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageDrawable(null);
+                if (verticalFlag) {
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 10), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 20), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
 
-                used[a][b] = used[a][b + 1] = used[a][b + 2] = -2;
+                    used[a][b] = used[a + 1][b] = used[a + 2][b] = -2;
 
-                for (int i = max(0, a - 1); i < min(10, a + 2); ++i) {
-                    for (int j = max(0, b - 1); j < min(b + 4, 10); ++j) {
-                        ++used[i][j];
+                    for (int i = max(0, a - 1); i < min(10, a + 4); ++i) {
+                        for (int j = max(0, b - 1); j < min(b + 2, 10); ++j) {
+                            ++used[i][j];
+                        }
+                    }
+                } else {
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 1), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 2), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+
+                    used[a][b] = used[a][b + 1] = used[a][b + 2] = -2;
+
+                    for (int i = max(0, a - 1); i < min(10, a + 2); ++i) {
+                        for (int j = max(0, b - 1); j < min(b + 4, 10); ++j) {
+                            ++used[i][j];
+                        }
                     }
                 }
+
                 break;
             case 4:
-                id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageDrawable(null);
-                id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 1), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageDrawable(null);
-                id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 2), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageDrawable(null);
-                id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 3), "id", getApplicationContext().getPackageName());
-                ((ImageView)findViewById(id)).setImageDrawable(null);
+                if (verticalFlag) {
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 10), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 20), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 30), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
 
-                used[a][b] = used[a][b + 1] = used[a][b + 2] = used[a][b + 3] = -2;
-                for (int i = max(0, a - 1); i < min(10, a + 2); ++i) {
-                    for (int j = max(0, b - 1); j < min(b + 5, 10); ++j) {
-                        ++used[i][j];
+                    used[a][b] = used[a + 1][b] = used[a + 2][b] = used[a + 3][b] = -2;
+                    for (int i = max(0, a - 1); i < min(10, a + 5); ++i) {
+                        for (int j = max(0, b - 1); j < min(b + 2, 10); ++j) {
+                            ++used[i][j];
+                        }
+                    }
+                } else {
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 1), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 2), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+                    id = res.getIdentifier("frame_image" + Integer.toString(pos % 1000 + 3), "id", getApplicationContext().getPackageName());
+                    ((ImageView)findViewById(id)).setImageDrawable(null);
+
+                    used[a][b] = used[a][b + 1] = used[a][b + 2] = used[a][b + 3] = -2;
+                    for (int i = max(0, a - 1); i < min(10, a + 2); ++i) {
+                        for (int j = max(0, b - 1); j < min(b + 5, 10); ++j) {
+                            ++used[i][j];
+                        }
                     }
                 }
                 break;

@@ -99,4 +99,33 @@
         android:text="Play">
 
     </Button>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/double1v"
+        android:layout_width="36dp"
+        android:layout_height="72dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/shape_triple_v"
+        android:tag="triple1v"
+        android:visibility="invisible" />
+    <ImageView
+        android:id="@+id/triple1v"
+        android:layout_width="36dp"
+        android:layout_height="108dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/shape_triple_v"
+        android:tag="triple1v"
+        android:visibility="invisible" />
+    <ImageView
+        android:id="@+id/quad1v"
+        android:layout_width="36dp"
+        android:layout_height="144dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/shape_triple_v"
+        android:tag="triple1v"
+        android:visibility="invisible" />
+    </LinearLayout>
 </LinearLayout>
