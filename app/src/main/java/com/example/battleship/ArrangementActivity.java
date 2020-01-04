@@ -566,6 +566,10 @@ public class ArrangementActivity extends AppCompatActivity {
         if (val == 1)
             return;
         boolean verticalFlag = ((used[a][b] / 1000) % 10 == 1);
+        if (verticalFlag  && b == 9)
+            return;
+        if (!verticalFlag && a == 9)
+            return;
         Resources res = getResources();
 
         if (used[a][b] < 0)
