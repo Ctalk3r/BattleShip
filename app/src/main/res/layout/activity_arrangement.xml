@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <include layout="@layout/board_layout"/>
@@ -87,18 +90,41 @@
             android:layout_margin="10dp"
             android:src="@drawable/shape_single" />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></LinearLayout>
+    <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/play"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:background="@drawable/shape_play_button"
-        android:text="Play">
+        <Button
+            android:id="@+id/random"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/random"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp">
 
-    </Button>
+        </Button>
+        <Button
+            android:id="@+id/clear"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/clear"
+            android:layout_toEndOf="@id/random"
+            android:layout_marginEnd="20dp">
+
+        </Button>
+        <Button
+            android:id="@+id/play"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_play_button"
+            android:text="Play"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp">
+
+        </Button>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"

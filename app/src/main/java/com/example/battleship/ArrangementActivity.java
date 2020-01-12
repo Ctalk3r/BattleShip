@@ -29,6 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Random;
 import java.util.UUID;
 
 import static java.lang.Math.max;
@@ -44,6 +45,7 @@ public class ArrangementActivity extends AppCompatActivity {
     private String userId;
     private View shouldRelease = null;
     private int releasePos = 0;
+    private Random rand = new Random();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,84 @@ public class ArrangementActivity extends AppCompatActivity {
             }
         }
 
-        findViewById(R.id.play).setEnabled(true);
+        findViewById(R.id.random).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.clear).callOnClick();
+                ImageView ship = findViewById(R.id.quad1);
+                while(!trySetShip(ship)) { }
+
+                ship = findViewById(R.id.triple1);
+                while(!trySetShip(ship)) { }
+
+                ship = findViewById(R.id.triple2);
+                while(!trySetShip(ship)) { }
+
+                ship = findViewById(R.id.double1);
+                while(!trySetShip(ship)) { }
+
+                ship = findViewById(R.id.double2);
+                while(!trySetShip(ship)) { }
+
+                ship = findViewById(R.id.double3);
+                while(!trySetShip(ship)) { }
+
+                ship = findViewById(R.id.single1);
+                while(!trySetShip(ship)) { }
+
+                ship = findViewById(R.id.single2);
+                while(!trySetShip(ship)) { }
+
+                ship = findViewById(R.id.single3);
+                while(!trySetShip(ship)) { }
+
+                ship = findViewById(R.id.single4);
+                while(!trySetShip(ship)) { }
+            }
+        });
+
+        findViewById(R.id.play).setEnabled(false);
+        findViewById(R.id.clear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Resources res = getResources();
+                for (int i = 0; i < 10; ++i) {
+                    for (int j = 0; j < 10; ++j) {
+                        if (used[i][j] > 0) {
+                            int id = res.getIdentifier("frame_image" + Integer.toString(i * 10 + j), "id", getApplicationContext().getPackageName());
+                            ((ImageView)findViewById(id)).setImageResource(R.drawable.shape);
+                        }
+                        used[i][j] = -1;
+                    }
+                }
+
+                fromBoard = -1;
+                shouldRelease = null;
+                releasePos = 0;
+                shipCount = 0;
+
+                ((ImageView)findViewById(R.id.single1)).setImageResource(R.drawable.shape_single);
+                ((ImageView)findViewById(R.id.single1)).setTag("single1");
+                ((ImageView)findViewById(R.id.single2)).setImageResource(R.drawable.shape_single);
+                ((ImageView)findViewById(R.id.single2)).setTag("single2");
+                ((ImageView)findViewById(R.id.single3)).setImageResource(R.drawable.shape_single);
+                ((ImageView)findViewById(R.id.single3)).setTag("single3");
+                ((ImageView)findViewById(R.id.single4)).setImageResource(R.drawable.shape_single);
+                ((ImageView)findViewById(R.id.single4)).setTag("single4");
+                ((ImageView)findViewById(R.id.double1)).setImageResource(R.drawable.shape_double);
+                ((ImageView)findViewById(R.id.double1)).setTag("double1");
+                ((ImageView)findViewById(R.id.double2)).setImageResource(R.drawable.shape_double);
+                ((ImageView)findViewById(R.id.double2)).setTag("double2");
+                ((ImageView)findViewById(R.id.double3)).setImageResource(R.drawable.shape_double);
+                ((ImageView)findViewById(R.id.double3)).setTag("double3");
+                ((ImageView)findViewById(R.id.triple1)).setImageResource(R.drawable.shape_triple);
+                ((ImageView)findViewById(R.id.triple1)).setTag("triple1");
+                ((ImageView)findViewById(R.id.triple2)).setImageResource(R.drawable.shape_triple);
+                ((ImageView)findViewById(R.id.triple2)).setTag("triple2");
+                ((ImageView)findViewById(R.id.quad1)).setImageResource(R.drawable.shape_quad);
+                ((ImageView)findViewById(R.id.quad1)).setTag("quad1");
+            }
+        });
         findViewById(R.id.play).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -558,6 +637,28 @@ public class ArrangementActivity extends AppCompatActivity {
         }
     }
 
+    private boolean trySetShip(ImageView ship) {
+        Resources res = getResources();
+        int verticalFlag = rand.nextInt(2);
+        String initTag = ship.getTag().toString();
+        if (verticalFlag != 0) {
+            ship.setTag(ship.getTag() + "v");
+        }
+        int pos = rand.nextInt(100);
+        int id = res.getIdentifier("frame_image" + Integer.toString(pos), "id", getApplicationContext().getPackageName());
+        ImageView cell = findViewById(id);
+        if (canDrop(ship, cell)) {
+            setShip(ship, cell);
+            switchShipImage(ship, true);
+            ship.setTag("empty");
+            return true;
+        }
+        if (verticalFlag != 0) {
+            ship.setTag(initTag);
+        }
+        return false;
+    }
+
     private void tryRotateShip(View cell) {
         int pos = Integer.parseInt(((String) cell.getTag()).substring(11));
         int a = pos / 10;
@@ -638,6 +739,8 @@ public class ArrangementActivity extends AppCompatActivity {
     public void switchShipImage(ImageView ship, boolean first) {
         String type = (String) ship.getTag();
         type = type.substring(0, type.length() - 1);
+        if (Character.isDigit(type.charAt(type.length() - 1)))
+            type = type.substring(0, type.length() - 1);
         Resources res = getResources();
         int id;
         if (first) {
@@ -843,7 +946,8 @@ public class ArrangementActivity extends AppCompatActivity {
         if (cell.getTag().toString().contains("_"))
             pos = Integer.parseInt(((String) cell.getTag()).substring(11));
         else
-            pos = Integer.parseInt(((String) cell.getTag()).substring(5));        int a = pos / 10;
+            pos = Integer.parseInt(((String) cell.getTag()).substring(5));
+        int a = pos / 10;
         int b = pos % 10;
 
         shipCount++;

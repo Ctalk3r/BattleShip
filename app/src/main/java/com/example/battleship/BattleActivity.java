@@ -260,6 +260,7 @@ public class BattleActivity extends AppCompatActivity {
                                 ++cnt;
                                 break;
                             case DESTROYED:
+                                cnt = 2;
                                 yourBoard.findViewById(id).setBackground(destroyedShape);
                                 break;
                             default:
