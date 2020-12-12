@@ -1,12 +1,107 @@
 <com.example.battleship.SquareGridLayout android:id="@+id/board"
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:columnCount="10"
+    android:columnCount="11"
     android:orientation="horizontal"
-    android:rowCount="10"
+    android:rowCount="11"
     android:stretchMode="none"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="#FFFFFF">
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_a" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_b" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_c" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_d" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_e" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_f" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_g" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_h" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_i" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_j" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_0" >
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/frame0"
@@ -166,6 +261,14 @@
             android:tag="frame_image9"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_1" >
     </FrameLayout>
 
     <FrameLayout
@@ -329,6 +432,14 @@
     </FrameLayout>
 
     <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_2" >
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/frame20"
         android:layout_width="0dp"
         android:layout_height = "0dp"
@@ -486,6 +597,14 @@
             android:tag="frame_image29"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_3" >
     </FrameLayout>
 
     <FrameLayout
@@ -649,6 +768,14 @@
     </FrameLayout>
 
     <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_4" >
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/frame40"
         android:layout_width="0dp"
         android:layout_height = "0dp"
@@ -806,6 +933,14 @@
             android:tag="frame_image49"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_5" >
     </FrameLayout>
 
     <FrameLayout
@@ -969,6 +1104,14 @@
     </FrameLayout>
 
     <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_6" >
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/frame60"
         android:layout_width="0dp"
         android:layout_height = "0dp"
@@ -1126,6 +1269,14 @@
             android:tag="frame_image69"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_7" >
     </FrameLayout>
 
     <FrameLayout
@@ -1289,6 +1440,14 @@
     </FrameLayout>
 
     <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_8" >
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/frame80"
         android:layout_width="0dp"
         android:layout_height = "0dp"
@@ -1446,6 +1605,14 @@
             android:tag="frame_image89"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height = "0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:background="@drawable/shape_9" >
     </FrameLayout>
 
     <FrameLayout

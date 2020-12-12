@@ -113,6 +113,7 @@ public class ArrangementActivity extends AppCompatActivity {
                     }
                 }
 
+                findViewById(R.id.play).setEnabled(false);
                 fromBoard = -1;
                 shouldRelease = null;
                 releasePos = 0;
