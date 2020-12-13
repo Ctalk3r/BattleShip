@@ -612,7 +612,6 @@ public class ArrangementActivity extends AppCompatActivity {
                         releasePos = a * 10 + b;
                         shouldRelease = view;
                         switchShipImage((ImageView)translateView, true);
-
                     } else {
                         View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
                         view.startDrag(data, shadowBuilder, view, 0);
@@ -677,6 +676,7 @@ public class ArrangementActivity extends AppCompatActivity {
         if (used[a][b] < 0)
             return;
         ImageView checkView = findViewById(R.id.quad1);
+        String initialCheckViewValue = checkView.getTag().toString();
         int setPos = used[a][b] % 100;
         int add = 0;
         switch (val) {
@@ -734,7 +734,7 @@ public class ArrangementActivity extends AppCompatActivity {
                 checkView.setTag(checkView.getTag().toString() + "v");
             setShip(checkView, cell);
         }
-        checkView.setTag("quad1");
+        checkView.setTag(initialCheckViewValue);
     }
 
     public void switchShipImage(ImageView ship, boolean first) {
