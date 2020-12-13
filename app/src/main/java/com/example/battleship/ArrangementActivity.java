@@ -1226,6 +1226,7 @@ public class ArrangementActivity extends AppCompatActivity {
                         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                         ClipData clip = ClipData.newPlainText("game_id", editText.getText());
                         clipboard.setPrimaryClip(clip);
+                        Toast.makeText(ArrangementActivity.this, "Game id copied to buffer", Toast.LENGTH_SHORT).show();
                     }
                 });
                 ((AlertDialog)dialog).getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {

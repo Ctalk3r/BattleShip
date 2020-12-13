@@ -6,10 +6,14 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.example.battleship.models.ErrorInfo;
+import com.example.battleship.models.StackTraceElementInfo;
+import com.example.battleship.models.State;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class StatsActivity extends AppCompatActivity {
 
@@ -50,9 +55,13 @@ public class StatsActivity extends AppCompatActivity {
                         statistics.add(value);
                     }
                     catch (Exception e) {
-
+                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("error").child("stats_load");
+                        StackTraceElement lastStackTraceElement = e.getStackTrace()[e.getStackTrace().length - 1];
+                        ref.setValue(new ErrorInfo(e.getMessage(), e.getLocalizedMessage(), new StackTraceElementInfo(lastStackTraceElement.getClassName(), lastStackTraceElement.getFileName(), lastStackTraceElement.getLineNumber(), lastStackTraceElement.getMethodName())));
                     }
-
+                }
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    statistics.sort(Comparator.comparing(State::getDate));
                 }
                 mRecyclerView.setAdapter(new StatsListAdapter(statistics));
                 mProgressBar.setVisibility(View.GONE);

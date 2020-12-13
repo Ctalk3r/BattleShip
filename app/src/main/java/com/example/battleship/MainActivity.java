@@ -3,6 +3,7 @@ package com.example.battleship;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.PackageInstaller;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.battleship.models.FirstLaunchSingleton;
+import com.example.battleship.models.SessionInfo;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -17,6 +20,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int RC_SIGN_IN = 9001;
@@ -62,13 +69,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         updateUI(account);
     }
 
-    public void  updateUI(GoogleSignInAccount account){
-        if(account != null){
+    public void updateUI(GoogleSignInAccount account) {
+        if (account != null) {
             userId = account.getId();
             findViewById(R.id.sign_in_button).setEnabled(false);
             userName = account.getDisplayName();
-            ((TextView)findViewById(R.id.name)).setText("Hi, " + userName);
-            Toast.makeText(this,"Signed in successfully", Toast.LENGTH_SHORT).show();
+            ((TextView) findViewById(R.id.name)).setText("Hi, " + userName);
+            if (FirstLaunchSingleton.getInstance().getFirstLaunchStatus()) {
+                FirstLaunchSingleton.getInstance().setFirstLaunchStatus(false);
+                Toast.makeText(this, "Signed in successfully", Toast.LENGTH_SHORT).show();
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("session").child(userId).child(UUID.randomUUID().toString().replace("-", ""));
+                ref.setValue(new SessionInfo(account));
+            }
         } else {
             findViewById(R.id.sign_in_button).setEnabled(true);
         }
@@ -101,17 +113,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-
             updateUI(account);
         } catch (ApiException e) {
             updateUI(null);
             Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("error").child("sign_in");
+            ref.setValue(e);
         }
     }
 
 
-    private void showStatistics(){
-
+    private void showStatistics() {
         if (userName != null) {
             Intent intent = new Intent(this, StatsActivity.class);
             intent.putExtra("userId", userId);

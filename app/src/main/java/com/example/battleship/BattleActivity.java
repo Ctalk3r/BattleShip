@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
+import com.example.battleship.models.State;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

@@ -1,6 +1,8 @@
-package com.example.battleship;
+package com.example.battleship.models;
 
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.Date;
 
 public class State {
     String hostBoard;
@@ -9,12 +11,14 @@ public class State {
     int destroyed;
     String hostName;
     String name;
+    Date date;
 
     public State() {
         this.hostBoard = StringUtils.repeat("0", 100);
         this.board = StringUtils.repeat("0", 100);
         hostDestroyed = 0;
         destroyed = 0;
+        date = new Date();
     }
 
     public State(String hostBoard, String board,
@@ -23,12 +27,13 @@ public class State {
         this.board = board;
         this.hostDestroyed = hostDestroyed;
         this.destroyed = destroyed;
+        this.date = new Date();
     }
 
     public void setHostName(String hostName) {
         this.hostName = hostName;
     }
-    
+
     public String getHostName() {
         return hostName;
     }
@@ -71,5 +76,13 @@ public class State {
 
     public String getBoard() {
         return board;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Date getDate() {
+        return date;
     }
 }
