@@ -22,6 +22,11 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.UUID;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
@@ -48,6 +53,11 @@ public class BattleActivity extends AppCompatActivity {
     private TextView Score;
     private boolean yourTurn;
 
+    private final long DELAY = 30 * 1000L;
+    private TimerTask clickTask;
+    private Runnable clickRunnable;
+    private Timer timer;
+
     public enum CellType {
         EMPTY,
         SHIP,
@@ -69,6 +79,34 @@ public class BattleActivity extends AppCompatActivity {
         eboard = new StringBuilder();
         board.append(getIntent().getStringExtra("board"));
         Score = findViewById(R.id.score);
+
+        Resources res = getResources();
+
+        enemyBoard = findViewById(R.id.enemy_board);
+        yourBoard = findViewById(R.id.your_board);
+
+        missShape = getDrawable(R.drawable.shape_miss);
+        destroyedShape = getDrawable(R.drawable.shape_destroyed);
+        hideShip = getDrawable(R.drawable.shape_hide_ship);
+
+        timer = new Timer("Timer");
+
+        clickRunnable = new Runnable() {
+            @Override
+            public void run() {
+                List<Integer> possibleCells = new ArrayList<>();
+                for (int i = 0; i < eboard.length(); ++i) {
+                    if (eboard.charAt(i) - '0' == CellType.EMPTY.ordinal() || eboard.charAt(i) - '0' == CellType.SHIP.ordinal()) {
+                        possibleCells.add(i);
+                    }
+                }
+                if (possibleCells.isEmpty()) {
+                    return;
+                }
+                int possibleCellId = res.getIdentifier("frame" + possibleCells.get(Math.abs((new Random()).nextInt()) % possibleCells.size()), "id", getApplicationContext().getPackageName());
+                enemyBoard.findViewById(possibleCellId).performClick();
+            }
+        };
 
         if (isHost) {
             yourTurn = true;
@@ -127,13 +165,6 @@ public class BattleActivity extends AppCompatActivity {
 
             }
         });
-
-        enemyBoard = findViewById(R.id.enemy_board);
-        yourBoard = findViewById(R.id.your_board);
-
-        missShape = getDrawable(R.drawable.shape_miss);
-        destroyedShape = getDrawable(R.drawable.shape_destroyed);
-        hideShip = getDrawable(R.drawable.shape_hide_ship);
 
         //region EnemyBoard Subscription
         enemyBoard.findViewById(R.id.frame0).setOnClickListener(new MyClickListener());
@@ -237,7 +268,6 @@ public class BattleActivity extends AppCompatActivity {
         enemyBoard.findViewById(R.id.frame98).setOnClickListener(new MyClickListener());
         enemyBoard.findViewById(R.id.frame99).setOnClickListener(new MyClickListener());        //endregion
 
-        Resources res = getResources();
         for (int i = 0; i < board.length(); ++i) {
             if (board.charAt(i) == '1') {
                 int id = res.getIdentifier("frame" + i, "id", getApplicationContext().getPackageName());
@@ -310,6 +340,9 @@ public class BattleActivity extends AppCompatActivity {
         public void onClick(View v) {
             if (!yourTurn)
                 return;
+            if (clickTask != null) {
+                clickTask.cancel();
+            }
             int pos = Integer.parseInt(((String) v.getTag()).substring(5));
             int a = pos / 10;
             int b = pos % 10;
@@ -406,6 +439,7 @@ public class BattleActivity extends AppCompatActivity {
                     }
                     enemyState.child("board").setValue(eboard.toString());
                     setScore(leftShips);
+                    setChoice(yourTurn);
                     break;
                 case MISS:
                 case DESTROYED:
@@ -422,6 +456,9 @@ public class BattleActivity extends AppCompatActivity {
     }
 
     private void finishGame(int score1, int score2) {
+        if (clickTask != null) {
+            clickTask.cancel();
+        }
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         if (score1 > score2) {
             builder.setTitle("Victory!")
@@ -486,6 +523,16 @@ public class BattleActivity extends AppCompatActivity {
             ((TextView)findViewById(R.id.turn)).setText("Your turn");
             ((TextView)findViewById(R.id.turn)).setTextColor(getResources().getColor(R.color.colorPrimary));
             findViewById(R.id.turn_progress).setVisibility(View.INVISIBLE);
+            if (clickTask != null) {
+                clickTask.cancel();
+            }
+            clickTask = new TimerTask() {
+                @Override
+                public void run() {
+                    runOnUiThread(clickRunnable);
+                }
+            };
+            timer.schedule(clickTask, DELAY);
         } else {
             ((TextView)findViewById(R.id.turn)).setText("Enemy's turn");
             ((TextView)findViewById(R.id.turn)).setTextColor(getResources().getColor(R.color.colorAccent));

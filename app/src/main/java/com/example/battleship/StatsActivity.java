@@ -61,7 +61,7 @@ public class StatsActivity extends AppCompatActivity {
                     }
                 }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    statistics.sort(Comparator.comparing(State::getDate));
+                    statistics.sort(Comparator.comparing(State::getDate).reversed());
                 }
                 mRecyclerView.setAdapter(new StatsListAdapter(statistics));
                 mProgressBar.setVisibility(View.GONE);

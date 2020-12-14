@@ -5,20 +5,20 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Date;
 
 public class State {
-    String hostBoard;
-    String board;
-    int hostDestroyed;
-    int destroyed;
-    String hostName;
-    String name;
-    Date date;
+    private String hostBoard;
+    private String board;
+    private int hostDestroyed;
+    private int destroyed;
+    private String hostName;
+    private String name;
+    private Date date;
 
     public State() {
         this.hostBoard = StringUtils.repeat("0", 100);
         this.board = StringUtils.repeat("0", 100);
         hostDestroyed = 0;
         destroyed = 0;
-        date = new Date();
+        date = new Date(0);
     }
 
     public State(String hostBoard, String board,
